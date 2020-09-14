@@ -36,7 +36,7 @@
           "application/x-www-form-urlencoded"
         ],
         "produces": [
-          "html/text"
+          "text/html"
         ],
         "summary": "登录",
         "parameters": [
@@ -72,7 +72,7 @@
           "Air"
         ],
         "produces": [
-          "html/text"
+          "text/html"
         ],
         "summary": "实时数据",
         "responses": {
@@ -100,7 +100,7 @@
           "Air"
         ],
         "produces": [
-          "html/text"
+          "text/html"
         ],
         "summary": "app版本信息",
         "responses": {
