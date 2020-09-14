@@ -1,0 +1,142 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "环境质量接口规范",
+    "description": "description",
+    "termsOfService": "terms",
+    "contact": {
+      "name": "fuyu",
+      "url": "http://www.sinoyd.com",
+      "email": "fuyu@sionyd.com"
+    }
+  },
+  "host": "106.12.150.249:7300",
+  "basePath": "/mock/5f5b17df115ae3876870790c/examle",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/Frame/UserLoginApp": {
+      "post": {
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "produces": [
+          "html/text"
+        ],
+        "summary": "登录",
+        "parameters": [
+          {
+            "name": "LoginId",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          },
+          {
+            "name": "Password",
+            "in": "formData",
+            "type": "string",
+            "required": true
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/LoginResponse"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Air/APPRealData": {
+      "post": {
+        "produces": [
+          "html/text"
+        ],
+        "summary": "实时数据",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "data": {
+                  "type": "array",
+                  "description": "用户名",
+                  "items": {
+                    "$ref": "#/definitions/RealDataResponse"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "LoginResponse": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "description": "用户名"
+        },
+        "userguid": {
+          "type": "string",
+          "description": "guid"
+        }
+      }
+    },
+    "RealDataResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "aqi": {
+          "type": "string"
+        },
+        "time": {
+          "type": "string"
+        },
+        "mainPollutes": {
+          "type": "array",
+          "description": "主要污染物",
+          "items": {
+            "$ref": "#/definitions/FactorModel"
+          }
+        },
+        "factorValues": {
+          "type": "array",
+          "description": "六因子值",
+          "items": {
+            "$ref": "#/definitions/FactorModel"
+          }
+        }
+      }
+    },
+    "FactorModel": {
+      "type": "object",
+      "properties": {
+        "factor": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        },
+        "unit": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}
