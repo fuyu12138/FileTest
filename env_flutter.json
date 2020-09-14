@@ -13,12 +13,25 @@
   },
   "host": "106.12.150.249:7300",
   "basePath": "/mock/5f5b17df115ae3876870790c/examle",
+  "tags": [
+    {
+      "name": "Air",
+      "description": "空气模块"
+    },
+    {
+      "name": "Frame",
+      "description": "框架功能"
+    }
+  ],
   "schemes": [
     "http"
   ],
   "paths": {
     "/Frame/UserLoginApp": {
       "post": {
+        "tags": [
+          "Frame"
+        ],
         "consumes": [
           "application/x-www-form-urlencoded"
         ],
@@ -55,6 +68,9 @@
     },
     "/Air/APPRealData": {
       "post": {
+        "tags": [
+          "Air"
+        ],
         "produces": [
           "html/text"
         ],
@@ -71,6 +87,30 @@
                   "items": {
                     "$ref": "#/definitions/RealDataResponse"
                   }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Air/AppVersion": {
+      "post": {
+        "tags": [
+          "Air"
+        ],
+        "produces": [
+          "html/text"
+        ],
+        "summary": "app版本信息",
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "Version": {
+                  "$ref": "#/definitions/AppVersionResponse"
                 }
               }
             }
@@ -106,7 +146,8 @@
           "type": "string"
         },
         "time": {
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "mainPollutes": {
           "type": "array",
@@ -121,6 +162,27 @@
           "items": {
             "$ref": "#/definitions/FactorModel"
           }
+        }
+      }
+    },
+    "AppVersionResponse": {
+      "type": "object",
+      "properties": {
+        "verName": {
+          "type": "string",
+          "description": "1.2.4"
+        },
+        "verCode": {
+          "type": "string",
+          "description": "24"
+        },
+        "verDesc": {
+          "type": "string",
+          "description": "APP更新信息"
+        },
+        "verPath": {
+          "type": "string",
+          "description": "APK下载路径"
         }
       }
     },
