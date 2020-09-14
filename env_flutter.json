@@ -137,13 +137,16 @@
       "type": "object",
       "properties": {
         "id": {
-          "type": "string"
+          "type": "string",
+          "example": "6831008A"
         },
         "name": {
-          "type": "string"
+          "type": "string",
+          "example": "五接站"
         },
         "aqi": {
-          "type": "string"
+          "type": "string",
+          "example": "63"
         },
         "time": {
           "type": "string",
@@ -170,19 +173,23 @@
       "properties": {
         "verName": {
           "type": "string",
-          "description": "1.2.4"
+          "example": "1.2.4",
+          "description": "版本号"
         },
         "verCode": {
           "type": "string",
-          "description": "24"
+          "description": "版本Code",
+          "example": "24"
         },
         "verDesc": {
           "type": "string",
-          "description": "APP更新信息"
+          "description": "APP更新信息",
+          "example": "欢迎使用！"
         },
         "verPath": {
           "type": "string",
-          "description": "APK下载路径"
+          "description": "APK下载路径",
+          "example": "http://223.113.9.184:8899/EQMSPortalTZ/EnvironmentTZ.apk"
         }
       }
     },
@@ -190,13 +197,16 @@
       "type": "object",
       "properties": {
         "factor": {
-          "type": "string"
+          "type": "string",
+          "example": "PM2.5"
         },
         "value": {
-          "type": "string"
+          "type": "string",
+          "example": "45"
         },
         "unit": {
-          "type": "string"
+          "type": "string",
+          "example": "μg/m³"
         }
       }
     }
